@@ -33,14 +33,4 @@ public class Water_1 : MonoBehaviour
             timer = 0f;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Kiểm tra nếu tag của đối tượng va chạm là "Player"
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player va chạm với nước");
-            // Ngăn đối tượng Player đi qua nước
-            other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
-    }
 }

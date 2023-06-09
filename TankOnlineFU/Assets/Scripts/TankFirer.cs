@@ -15,6 +15,7 @@ namespace DefaultNamespace
         public int maxRange;
         public float delay;
         public float lastFire = 0f;
+        //Collider2D collider;
 
         private void Start()
         {
@@ -33,6 +34,8 @@ namespace DefaultNamespace
             }
 
             var bullet = Instantiate(bulletPrefab, b.InitialPosition, Quaternion.identity);
+            //collider = bullet.GetComponent<Collider2D>();
+            //collider.isTrigger = false;
             var sr = bullet.GetComponent<SpriteRenderer>();
             var rigidBody2d = bullet.GetComponent<Rigidbody2D>();
             var bulletController = bullet.GetComponent<BulletController>();

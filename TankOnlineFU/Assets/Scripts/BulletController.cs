@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Entity;
@@ -9,16 +9,32 @@ public class BulletController : MonoBehaviour
     public Bullet Bullet { get; set; }
 
     public int MaxRange { get; set; }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
     // Update is called once per frame
     private void Update()
     {
         DestroyAfterRange();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Nếu đụng vào brick thì destroy brick và đạn
+        if (collision.gameObject.CompareTag("Brick"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        
+        //Nếu đụng vào steel thì destroy đạn
+        if (collision.gameObject.CompareTag("Steel"))
+        {
+            Destroy(gameObject);
+        }
+
+        //Nếu đụng vào boundary thì destroy đạn
+        if (collision.gameObject.CompareTag("Boundary"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void DestroyAfterRange()

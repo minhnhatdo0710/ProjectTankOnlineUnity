@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - bullet
   - bulletEnemy
+  - Rock
+  - Boundary
+  - Water
+  - Brick
+  - Steel
   layers:
   - Default
   - TransparentFX
